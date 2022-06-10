@@ -46,6 +46,11 @@ if __name__ == "__main__":
 
     stream_in.seek(HR1_OFS_CMDS_0)
 
+    read8(stream_in)
+    read8(stream_in)
+    read8(stream_in)
+    read8(stream_in)
+
     byte : bytes
 
     while 1:

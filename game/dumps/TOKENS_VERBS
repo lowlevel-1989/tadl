@@ -1,0 +1,44 @@
+'GO      '   ir a
+'U       '   moverse arriba
+'D       '   moverse abajo
+'OPEN    '   abrir objeto
+'CLOSE   '   cerrar objeto
+'UNLOCK  '
+'N       '   moverse al norte     |  top
+'S       '   moverse al sur       |  bottom
+'E       '   moverse al este      |  right
+'W       '   moverse al oeste     |  left
+'BREAK   '   romper
+'MOVE    '   mover
+'LOOK    '   mirar room/objeto
+'GET     '   recoger objeto
+'LIGHT   '
+'POUR    '   verter
+'DROP    '   tirar objeto
+'JUMP    '   saltar ???
+'READ    '   leer objeto
+'TALK    '   hablar
+'KILL    '   matar
+'EAT     '   comer
+'WIPE    '   limpiar
+'FLUSH   '
+'UNSCREW '   destornillar
+'WITH    '   con ?
+'PRESS   '   presionar
+'TURN    '   girar
+'FAUCET  '
+'WATER   '
+'ON      '   encender
+'OFF     '   apagar
+'UNLIGHT '
+'SAVE    '   grabar                       "SAVE GAME"
+'RESTORE '   restaurar                    "RESTORE GAME"
+'QUIT    '   reiniciar juego
+'HELP    '   muestra muy pocos comandos
+'INVENTOR'   inventario
+'FUCK    '   cerrar el juego
+'SCORE   '
+'SLEEP   '   muestra en pantalla, me siento mucho mas descansado
+'DRINK   '   beber
+'DONE    '
+'        '   presionar solo ENTRER cambia de mode. text <> grafico
