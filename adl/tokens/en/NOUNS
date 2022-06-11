@@ -1,0 +1,44 @@
+  ID    TOKENS
+   1    DAISY
+   2    BILL
+   3    JOSE
+   4    SALLY
+   5    SAM
+   6    TOM
+   7    DOCTOR
+   8    DAGGER
+   9    GUN
+  10    NOTE
+  11    BLA
+  12    DOG
+  13    FOOD
+  14    LAST     --- voy por aqui
+  15    LIGHT
+  16    POUR
+  17    DROP
+  18    JUMP
+  19    READ
+  20    TALK
+  21    KILL
+  22    EAT
+  23    WIPE
+  24    FLUSH
+  25    UNSCREW
+  26    WITH
+  27    PRESS
+  28    TURN
+  29    FAUCET
+  30    WATER
+  31    ON
+  32    OFF
+  33    UNLIGHT
+  34    SAVE
+  35    RESTORE     CONTINUE
+  36    RESET
+  37    HELP        H
+  38    INVENTORY   LIST      I       L
+  39    FUCK
+  40    SCORE
+  41    SLEEP
+  42    DRINK
+  43    DONE

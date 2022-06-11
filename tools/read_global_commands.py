@@ -1,32 +1,13 @@
 import sys
 import io
-from dataclasses import dataclass
 from os.path import exists
+
+sys.path.append("..")
+
+from adl.command import Command
 
 # direccion encontrada por scummvm
 HR1_OFS_CMDS_0 = 0x3c00
-
-class ListBytes(list):
-    def __repr__(self) -> str:
-        o : str = "["
-        for x in self:
-            o = "%s %02x" % (o, x)
-
-        o += " ]"
-        return o
-
-
-@dataclass
-class Command:
-    id_room  : int
-    verb     : int # verbo
-    noun     : int # sustantivo
-    num_cond : int
-    num_act  : int
-    script   : ListBytes[int]
-
-    def __init__(self) -> None:
-        self.script = ListBytes()
 
 def read8(buf : io.BufferedReader) -> int:
     return ord(buf.read(1))

@@ -1,0 +1,44 @@
+  ID    TOKENS
+   1    GO
+   2    UP          U
+   3    DOWN        D
+   4    OPEN
+   5    CLOSE
+   6    UNLOCK
+   7    NORTH       NO        N
+   8    SOUTH       SO        S
+   9    EAST        EA        E
+  10    WEST        WE        W
+  11    BREAK
+  12    MOVE
+  13    LOOK
+  14    GET         TAKE
+  15    LIGHT
+  16    POUR
+  17    DROP
+  18    JUMP
+  19    READ
+  20    TALK
+  21    KILL
+  22    EAT
+  23    WIPE
+  24    FLUSH
+  25    UNSCREW
+  26    WITH
+  27    PRESS
+  28    TURN
+  29    FAUCET
+  30    WATER
+  31    ON
+  32    OFF
+  33    UNLIGHT
+  34    SAVE
+  35    RESTORE     CONTINUE
+  36    RESET
+  37    HELP        H
+  38    INVENTORY   LIST      I       L
+  39    FUCK
+  40    SCORE
+  41    SLEEP
+  42    DRINK
+  43    DONE

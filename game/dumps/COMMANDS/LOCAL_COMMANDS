@@ -1,17 +1,95 @@
-Command(id_room=1, verb=1, noun=23, num_cond=0, num_act=1, script=[ 06 02 ])
-Command(id_room=1, verb=2, noun=23, num_cond=0, num_act=1, script=[ 06 02 ])
-Command(id_room=1, verb=13, noun=37, num_cond=0, num_act=1, script=[ 09 64 ])
-Command(id_room=1, verb=2, noun=37, num_cond=0, num_act=1, script=[ 09 01 ])
-Command(id_room=1, verb=13, noun=52, num_cond=0, num_act=1, script=[ 09 65 ])
-Command(id_room=1, verb=1, noun=52, num_cond=0, num_act=1, script=[ 06 05 ])
-Command(id_room=1, verb=18, noun=37, num_cond=0, num_act=1, script=[ 09 01 ])
-Command(id_room=2, verb=4, noun=25, num_cond=1, num_act=1, script=[ 06 0c 01 09 81 ])
-Command(id_room=2, verb=4, noun=25, num_cond=0, num_act=2, script=[ 08 02 03 0c 01 ])
-Command(id_room=2, verb=5, noun=25, num_cond=1, num_act=2, script=[ 06 0c 01 08 01 03 0c 00 ])
-Command(id_room=2, verb=5, noun=25, num_cond=1, num_act=1, script=[ 06 0c 00 09 80 ])
-Command(id_room=2, verb=1, noun=25, num_cond=1, num_act=3, script=[ 06 0c 01 06 03 03 01 01 09 8e ])
-Command(id_room=2, verb=1, noun=25, num_cond=0, num_act=1, script=[ 09 80 ])
-Command(id_room=2, verb=1, noun=23, num_cond=0, num_act=1, script=[ 06 01 ])
+room     -> identificador del room
+verb     -> verbo asociado al comando
+noun     -> sustantivo asociado al comando
+num_cond -> numero de condiciones en el script
+num_act  -> numero de acciones en el script
+script   -> es un bytecodes, esta organizado primero las condiciones
+y luego las acciones.
+
+Command(id_room=1,
+          verb=1/GO, noun=23/STAIRS,
+          num_cond=0, num_act=1,
+          script=[ 06 02 ])       # cambiar a room [02]
+
+Command(id_room=1,
+          verb=2/UP, noun=23/STAIRS,
+          num_cond=0, num_act=1,
+          script=[ 06 02 ])       # cambiar a room [02]
+
+Command(id_room=1,
+          verb=13/LOOK, noun=37/FENCE,
+          num_cond=0, num_act=1,
+          script=[ 09 64 ])       # mostrar mensaje [64]
+
+Command(id_room=1,
+          verb=2/UP, noun=37/FENCE,
+          num_cond=0, num_act=1,
+          script=[ 09 01 ])       # mostrar mensaje [01]
+
+Command(id_room=1,
+          verb=13/LOOK, noun=52/TREE,
+          num_cond=0, num_act=1,
+          script=[ 09 65 ])       # mostrar mensaje [65]
+
+Command(id_room=1,
+          verb=1/GO, noun=52/TREE,
+          num_cond=0, num_act=1,
+          script=[ 06 05 ])       # cambiar a room [05]
+
+Command(id_room=1,
+          verb=18/JUMP, noun=37/FENCE,
+          num_cond=0, num_act=1,
+          script=[ 09 01 ])       # mostrar mensaje [01]
+
+Command(id_room=2,
+          verb=4/OPEN, noun=25/DOOR,
+          num_cond=1, num_act=1,
+          script=[ 06 0c 01 09 81 ])
+
+# script escrito en seudo-codigo
+if var[0c] == 1:
+    print(msg[81/IT IS OPEN])
+
+Command(id_room=2,
+          verb=4/OPEN, noun=25/DOOR,
+          num_cond=0, num_act=2,
+          script=[ 08 02 03 0c 01 ])
+
+
+Command(id_room=2,
+          verb=5/CLOSE, noun=25/DOOR,
+          num_cond=1,
+          num_act=2,
+          script=[ 06 0c 01 08 01 03 0c 00 ])
+
+# script escrito en seudo-codigo
+if var[0c] == 01:
+    ???
+
+Command(id_room=2,
+          verb=5/CLOSE, noun=25/DOOR,
+          num_cond=1, num_act=1,
+          script=[ 06 0c 00 09 80 ])
+
+# script escrito en seudo-codigo
+if var[0c] == 00:
+    print(msg[80/THE DOOR IS CLOSED])
+
+Command(id_room=2,
+          verb=1/GO, noun=25/DOOR,
+          num_cond=1, num_act=3,
+          script=[ 06 0c 01 06 03 03 01 01 09 8e ])
+
+Command(id_room=2,
+          verb=1/GO, noun=25/DOOR,
+          num_cond=0, num_act=1,
+          script=[ 09 80 ])        # mostrar mensaje [80]
+
+Command(id_room=2,
+          verb=1/GO, noun=23/STAIRS,
+          num_cond=0, num_act=1,   # acción
+          script=[ 06 01 ])        # cambia al room [01]
+
 Command(id_room=3, verb=13, noun=54, num_cond=1, num_act=1, script=[ 09 35 09 a3 ])
 Command(id_room=3, verb=1, noun=25, num_cond=0, num_act=1, script=[ 09 30 ])
 Command(id_room=3, verb=1, noun=23, num_cond=1, num_act=2, script=[ 09 35 08 04 06 18 ])

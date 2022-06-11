@@ -1,0 +1,52 @@
+room     -> identificador del room
+verb     -> verbo asociado al comando
+noun     -> sustantivo asociado al comando
+num_cond -> numero de condiciones en el script
+num_act  -> numero de acciones en el script
+script   -> es un bytecodes, esta organizado primero las condiciones
+y luego las acciones.
+
+Command(id_room=1,
+          verb=1/GO, noun=23/STAIRS,
+          num_cond=0, num_act=1,
+          script=[ 06 02 ])       # cambiar a room [02]
+
+Command(id_room=1,
+          verb=2/UP, noun=23/STAIRS,
+          num_cond=0, num_act=1,
+          script=[ 06 02 ])       # cambiar a room [02]
+
+Command(id_room=1,
+          verb=13/LOOK, noun=37/FENCE,
+          num_cond=0, num_act=1,
+          script=[ 09 64 ])       # mostrar mensaje [64]
+
+Command(id_room=1,
+          verb=2/UP, noun=37/FENCE,
+          num_cond=0, num_act=1,
+          script=[ 09 01 ])       # mostrar mensaje [01]
+
+Command(id_room=1,
+          verb=13/LOOK, noun=52/TREE,
+          num_cond=0, num_act=1,
+          script=[ 09 65 ])       # mostrar mensaje [65]
+
+Command(id_room=1,
+          verb=1/GO, noun=52/TREE,
+          num_cond=0, num_act=1,
+          script=[ 06 05 ])       # cambiar a room [05]
+
+Command(id_room=1,
+          verb=18/JUMP, noun=37/FENCE,
+          num_cond=0, num_act=1,
+          script=[ 09 01 ])       # mostrar mensaje [01]
+
+Command(id_room=1,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=2, num_act=2,
+          script=[ 03 20 fe 06 0b 01 09 a4 11 ])
+
+# script escrito en seudo-codigo
+if ???[20] == ???[fe] and var[0b] == 01:
+    print(msg[a4])
+    restart()

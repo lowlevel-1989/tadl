@@ -1,0 +1,31 @@
+room     -> identificador del room
+verb     -> verbo asociado al comando
+noun     -> sustantivo asociado al comando
+num_cond -> numero de condiciones en el script
+num_act  -> numero de acciones en el script
+script   -> es un bytecodes, esta organizado primero las condiciones
+y luego las acciones.
+
+Command(id_room=5,
+          verb=2/UP, noun=70/NULL,
+          num_cond=1, num_act=1,
+          script=[ 06 0e 00 09 90 ])
+
+# script escrito en seudo-codigo
+if var[0e] == 00:
+    print(msg[90/THE KITCHEN DOOR IS CLOSED])
+
+Command(id_room=5,
+          verb=2/UP, noun=70/NULL,
+          num_cond=0, num_act=1,
+          script=[ 06 04 ])         # cambiar al room [04]
+
+Command(id_room=5,
+          verb=4/OPEN, noun=25/DOOR,
+          num_cond=0, num_act=3,
+          script=[ 09 a2 1d 04 0e 03 0e 01 ])
+
+# script escrito en seudo-codigo
+print(msg[a2/THE KITCHEN DOOR IS OPEN])
+set_room_pic(04, 0e)
+var[0e] = 01

@@ -1,0 +1,68 @@
+room     -> identificador del room
+verb     -> verbo asociado al comando
+noun     -> sustantivo asociado al comando
+num_cond -> numero de condiciones en el script
+num_act  -> numero de acciones en el script
+script   -> es un bytecodes, esta organizado primero las condiciones
+y luego las acciones.
+
+Command(id_room=2,
+          verb=4/OPEN, noun=25/DOOR,
+          num_cond=1, num_act=1,
+          script=[ 06 0c 01 09 81 ])
+
+# script escrito en seudo-codigo
+if var[0c] == 01:
+    print(msg[81/IT IS OPEN])
+
+Command(id_room=2,
+          verb=4/OPEN, noun=25/DOOR,
+          num_cond=0, num_act=2,
+          script=[ 08 02 03 0c 01 ])
+
+# script escrito en seudo-codigo
+set_pic(02)
+var[0c] = 01
+
+Command(id_room=2,
+          verb=5/CLOSE, noun=25/DOOR,
+          num_cond=1,
+          num_act=2,
+          script=[ 06 0c 01 08 01 03 0c 00 ])
+
+# script escrito en seudo-codigo
+if var[0c] == 01:
+    set_pic(01)
+    var[0c] = 00
+
+Command(id_room=2,
+          verb=5/CLOSE, noun=25/DOOR,
+          num_cond=1, num_act=1,
+          script=[ 06 0c 00 09 80 ])
+
+# script escrito en seudo-codigo
+if var[0c] == 00:
+    print(msg[80/THE DOOR IS CLOSED])
+
+Command(id_room=2,
+          verb=1/GO, noun=25/DOOR,
+          num_cond=1, num_act=3,
+          script=[ 06 0c 01 06 03 03 01 01 09 8e ])
+
+# script escrito en seudo-codigo
+if var[0c] == 01:
+    set_room(03)
+    var[01] = 01
+
+    # la puerta ha sido cerrada y bloqueada
+    print(msg[8e/THE DOOR HAS BEEN CLOSED AND LOCKED])
+
+Command(id_room=2,
+          verb=1/GO, noun=25/DOOR,
+          num_cond=0, num_act=1,
+          script=[ 09 80 ])        # mostrar mensaje [80]
+
+Command(id_room=2,
+          verb=1/GO, noun=23/STAIRS,
+          num_cond=0, num_act=1,   # acción
+          script=[ 06 01 ])        # cambia al room [01]

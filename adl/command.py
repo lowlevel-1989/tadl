@@ -1,6 +1,12 @@
+import sys
+
 from enum import Enum, auto
 from dataclasses import dataclass
-from dataclasses import field
+
+if __name__ == "__main__":
+    from common.misc import ListBytes
+else:
+    from adl.common.misc import ListBytes
 
 class OP_TYPE(Enum):
     DONE = auto()
@@ -14,4 +20,7 @@ class Command:
     noun     : int # sustantivo
     num_cond : int
     num_act  : int
-    script   : list[int] = field(repr=False, default_factory=list)
+    script   : ListBytes[int]
+
+    def __init__(self) -> None:
+        self.script = ListBytes()

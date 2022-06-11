@@ -1,8 +1,4 @@
 from enum import Enum, auto
-from dataclasses import dataclass
-from dataclasses import field
-
-from common.field import ImmutableID
 
 class DIR(Enum):
     NORTH = auto()
@@ -13,20 +9,38 @@ class DIR(Enum):
     DOWN  = auto()
     TOTAL = auto()
 
-class RoomID(ImmutableID):
-    pass
-
-class DescriptionID(ImmutableID):
-    def __repr__(self) -> str:
-        return "{:d}".format(self.get_id())
-
-@dataclass
 class Room:
-    description_id : DescriptionID
-    connections    : dict[DIR, RoomID] = field(default_factory=dict)
-    is_first_time  : bool      = True
+    __id              : int
+    description_id    : int
+    connections       : dict[DIR, int]
+    is_first_time     : bool           = True
 
+    @property
+    def id(self) -> int:
+        return self.__id
+
+    def __init__(self, id, description_id) -> None:
+        self.__id = id
+        self.description_id = description_id
+        self.connections = dict()
+
+    def __repr__(self) -> str:
+        o = f"{self.__class__.__name__}({self.id:02x}, description_id={self.description_id:02x}"
+        o = f"{o}, is_first_time={self.is_first_time}"
+
+        o = f"{o}, connections=| "
+        for k, c in self.connections.items():
+            o = f"{o}{k.name}:Room({c:02x}) | "
+
+        # eliminar ultima coma
+        l = len(o) - 2
+        o = f"{o[:l]}|)"
+
+        return o
+
+# Esto es solo una prueba rapida (instancia una habitación)
 if __name__ == "__main__":
-    room = Room(DescriptionID(0))
-    room.connections[DIR.SOUTH] = RoomID(1)
+    room = Room(id=1, description_id=1)
+    room.connections[DIR.SOUTH] = 1
+    room.connections[DIR.NORTH] = 200
     print(room)

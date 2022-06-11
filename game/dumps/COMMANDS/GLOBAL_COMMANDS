@@ -1,0 +1,86 @@
+room     -> identificador del room
+verb     -> verbo asociado al comando
+noun     -> sustantivo asociado al comando
+num_cond -> numero de condiciones en el script
+num_act  -> numero de acciones en el script
+script   -> es un bytecodes, esta organizado primero las condiciones
+y luego las acciones.
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=1, num_act=1,
+          script=[ 06 03 01 09 82 ])
+
+# script escrito en seudo-codigo
+if var[03] == 01:
+    print(msg[82/THE MATCH WENT OUT])
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=1, num_act=1,
+          script=[ 06 03 00 03 03 01 ])
+
+# script escrito en seudo-codigo
+if var[03] == 00:
+     var[03] = 01
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=0, num_act=1,
+          script=[ 02 01 03 ])
+
+# script escrito en seudo-codigo
+var[03] = var[03] - 01
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=2, num_act=1,
+          script=[ 05 24 06 03 00 0b ])
+
+# script escrito en seudo-codigo
+if moves > 24 and var[03] == 00:
+    set_dark()
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=3, num_act=1,
+          script=[ 03 12 fd 06 03 00 05 24 09 2a ])
+
+# script escrito en seudo-codigo
+if ???[12] == ???[fd] and var[03] == 0 and moves > 24:
+    print(msg[2a/IT IS DARK, YOU CAN'T SEE])
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=1, num_act=1,
+          script=[ 03 12 fe 0a ])
+
+# script escrito en seudo-codigo
+if ???[12] == ???[fe]:
+    set_light()
+
+Command(id_room=254/ALL,
+          verb=17/DROP, noun=254,
+          num_cond=0, num_act=1,
+          script=[ 14 ])
+
+# script escrito en seudo-codigo
+reset_pic()
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=2, num_act=1,
+          script=[ 05 14 06 10 00 09 07 ])
+
+# script escrito en seudo-codigo
+if moves > 14 and var[10] == 0:
+    print(msg[07/IT IS GETTING DARK])
+
+Command(id_room=254/ALL,
+          verb=254/ALL, noun=254/ALL,
+          num_cond=1, num_act=1,
+          script=[ 05 23 03 10 01 ])
+
+# script escrito en seudo-codigo
+if moves > 23:
+    var[10] = 01
